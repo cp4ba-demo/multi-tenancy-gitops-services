@@ -35,4 +35,4 @@ spec:
   members:
     - dev
     - prod
-    - staging
+    - preprod
