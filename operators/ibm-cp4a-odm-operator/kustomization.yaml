@@ -1,0 +1,4 @@
+resources:
+- deployment/cp4a-catalogsource.yaml
+- deployment/ldap-bind-secret.yaml
+- deployment/cp4a-subscription.yaml
