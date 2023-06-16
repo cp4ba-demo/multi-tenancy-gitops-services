@@ -7,7 +7,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "240"
 spec:
   # clusterIP: 172.21.162.213
-  clusterIP: 172.21.158.45
   ipFamilies:
     - IPv4
   ports:
@@ -18,8 +17,6 @@ spec:
   internalTrafficPolicy: Cluster
   # clusterIPs:
   #   - 172.21.162.213
-  clusterIPs:
-    - 172.21.158.45
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
