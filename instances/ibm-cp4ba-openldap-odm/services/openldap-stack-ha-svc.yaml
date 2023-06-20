@@ -6,7 +6,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "240"
 spec:
-  clusterIP: None
   ipFamilies:
     - IPv4
   ports:
@@ -15,8 +14,6 @@ spec:
       port: 389
       targetPort: ldap-port
   internalTrafficPolicy: Cluster
-  clusterIPs:
-    - None
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
