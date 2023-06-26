@@ -3,7 +3,7 @@ kind: Db2uCluster
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "230"
-  name: db2ucluster-cp4ba
+  name: db2ucluster-cp4ba-old
   namespace: db2
 spec:
   license:
