@@ -2,7 +2,7 @@ resources:
 - deployment/cp4ba-catalogsource.yaml
 - deployment/cp4ba-subscription.yaml
 # - deployment/cp4ba-subscription-preprod.yaml
-#- deployment/ibm-licensing-operator.yaml
+- deployment/ibm-licensing-operator.yaml
 ### BAW DEPLOYMENT ###
 #- deployment/cp4ba-baw-catalogsource.yaml
 #- deployment/cp4ba-baw-subscription.yaml
