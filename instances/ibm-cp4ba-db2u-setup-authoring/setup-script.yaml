@@ -10,13 +10,13 @@ data:
       cd /tmp
       tar -xzf client.tgz
       export PATH=$PATH:/tmp
-      oc project preprod
+      oc project authoring
 
-      READY=$(oc get pod c-db2ucluster-preprod-db2u-0 --no-headers | grep "1/1" | wc -l)
+      READY=$(oc get pod c-db2ucluster-authoring-db2u-0 --no-headers | grep "1/1" | wc -l)
       while [ $READY -eq 0 ] 
       do
         sleep 10
-        READY=$(oc get pod c-db2ucluster-preprod-db2u-0 --no-headers | grep "1/1" | wc -l)
+        READY=$(oc get pod c-db2ucluster-authoring-db2u-0 --no-headers | grep "1/1" | wc -l)
       done
 
     ## wait until the LDAP server is ready
@@ -32,14 +32,14 @@ data:
     su - db2inst1
     db2 list db directory
     EOF
-      READY=$(oc rsh -c db2u c-db2ucluster-cp4ba-db2u-0 /bin/bash < db2test.txt | grep "Database alias" | grep BLUDB | wc -l)
+      READY=$(oc rsh -c db2u c-db2ucluster-authoring-db2u-0 /bin/bash < db2test.txt | grep "Database alias" | grep BLUDB | wc -l)
       while [ $READY -eq 0 ] 
       do
         sleep 10
-        READY=$(oc rsh -c db2u c-db2ucluster-cp4ba-db2u-0 /bin/bash < db2test.txt | grep "Database alias" | grep BLUDB | wc -l)
+        READY=$(oc rsh -c db2u c-db2ucluster-authoring-db2u-0 /bin/bash < db2test.txt | grep "Database alias" | grep BLUDB | wc -l)
       done
       # database BLUDB is in - wait 2 minutes for Database to settle down
-      sleep 120
+      sleep 180
 
     cat <<EOF >db2cfg.txt
     su - db2inst1
@@ -52,5 +52,5 @@ data:
     db2 connect reset;
     EOF
 
-      oc rsh c-db2ucluster-cp4ba-db2u-0 /bin/bash < db2cfg.txt
+      oc rsh c-db2ucluster-authoring-db2u-0 /bin/bash < db2cfg.txt
     exit 0
